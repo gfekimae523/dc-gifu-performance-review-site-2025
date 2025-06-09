@@ -34,20 +34,17 @@
             margin-bottom: 5px;
             display: flex;
             align-items: center;
+            white-space: pre; /* preタグのようにスペースを保持 */
         }
         .prompt {
             color: #0F0;
             margin-right: 5px;
         }
-        .input-field {
-            background: none;
-            border: none;
+        .typed-output {
             color: #0F0;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1em;
-            outline: none;
-            caret-color: #0F0; /* カーソルの色 */
+            /* widthを100%にして、Typed.jsのカーソルが次行に落ちるのを防ぐ */
             width: 100%;
+            min-height: 1em; /* Typed.jsのカーソルが表示される高さを確保 */
         }
         #output {
             margin-top: 10px;
@@ -71,13 +68,13 @@
 <body>
     <div id="vanta-background"></div> <div id="terminal">
         <div class="line">
-            <span class="prompt">user@it-office:~$</span> <span id="typed-username"></span>
+            <span class="prompt">user@it-office:~$</span> <span id="usernameOutput" class="typed-output"></span>
         </div>
         <div class="line hidden" id="password-line">
-            <span class="prompt">password:</span> <input type="password" id="passwordInput" class="input-field" autocomplete="off">
+            <span class="prompt">password:</span> <span id="passwordOutput" class="typed-output"></span>
         </div>
         <div class="line hidden" id="command-line">
-            <span class="prompt">user@it-office:~$</span> <input type="text" id="commandInput" class="input-field" autocomplete="off">
+            <span class="prompt">user@it-office:~$</span> <span id="commandOutput" class="typed-output"></span>
         </div>
         <div id="output"></div>
     </div>
@@ -90,83 +87,59 @@
     <script>
         $(document).ready(function() {
             const $terminal = $('#terminal');
-            const $usernameInput = $('#typed-username');
+            const $usernameOutput = $('#usernameOutput');
             const $passwordLine = $('#password-line');
-            const $passwordInput = $('#passwordInput');
+            const $passwordOutput = $('#passwordOutput');
             const $commandLine = $('#command-line');
-            const $commandInput = $('#commandInput');
+            const $commandOutput = $('#commandOutput');
             const $output = $('#output');
-            const correctUsername = 'admin';
-            const correctPassword = 'start'; // "start it-office" の "start" に合わせる
 
-            let typedUsernameInstance;
-            let typedCommandInstance;
+            const username = 'admin';
+            const password = 'start';
+            const command = 'start it-office';
 
-            // ユーザー名のタイピングアニメーション
-            typedUsernameInstance = new Typed('#typed-username', {
-                strings: [''], // 初期は空
-                typeSpeed: 50,
-                showCursor: true,
-                onComplete: (self) => {
-                    $usernameInput.text(''); // 初期化
-                    typedUsernameInstance = new Typed('#typed-username', {
-                        strings: ['_'], // カーソル表示のためにアンダーバーを一時的に表示
-                        typeSpeed: 0,
-                        backSpeed: 0,
-                        startDelay: 0,
-                        loop: false,
-                        showCursor: true,
-                        onComplete: () => {
-                            $usernameInput.html('<input type="text" id="usernameActualInput" class="input-field" autocomplete="off">');
-                            $('#usernameActualInput').focus();
-                        }
-                    });
-                }
-            });
-
-            // ユーザー名入力後の処理
-            $(document).on('keypress', '#usernameActualInput', function(e) {
-                if (e.which === 13) { // Enterキー
-                    const enteredUsername = $(this).val();
-                    $(this).prop('disabled', true); // 入力フィールドを無効化
-                    $(this).parent().html('<span class="input-field-static">' + enteredUsername + '</span>'); // 静的なテキストに置き換え
-                    $passwordLine.removeClass('hidden');
-                    $passwordInput.focus();
-                }
-            });
-
-            // パスワード入力後の処理
-            $passwordInput.keypress(function(e) {
-                if (e.which === 13) { // Enterキー
-                    const enteredPassword = $(this).val();
-                    $(this).prop('disabled', true);
-                    $(this).attr('type', 'text').val('********'); // パスワードを隠す
-                    $commandLine.removeClass('hidden');
-                    $commandInput.focus();
-                }
-            });
-
-            // コマンド入力後の処理
-            $commandInput.keypress(function(e) {
-                if (e.which === 13) { // Enterキー
-                    const enteredCommand = $(this).val().toLowerCase().trim();
-                    $(this).prop('disabled', true);
-                    $(this).parent().html('<span class="prompt">user@it-office:~$</span> <span class="input-field-static">' + enteredCommand + '</span>');
-
-                    const enteredUsernameAtLogin = $('#usernameActualInput').val();
-                    const enteredPasswordAtLogin = $passwordInput.val();
-
-                    if (enteredUsernameAtLogin === correctUsername && enteredPasswordAtLogin === correctPassword && enteredCommand === 'start it-office') {
-                        $output.text('Initializing IT-Office system...');
-                        // 豪華な演出を開始
-                        startColorfulTransition();
-                    } else {
-                        $output.text('Access denied or unknown command. Please try again.');
-                        // エラー表示後、再度入力を促す場合はリロードするか、再度入力を可能にするロジックを追加
-                        setTimeout(() => location.reload(), 2000); // 簡単なリロード
+            // ページロード後、数秒待ってから自動入力を開始
+            setTimeout(function() {
+                // ユーザー名自動入力
+                new Typed('#usernameOutput', {
+                    strings: [username],
+                    typeSpeed: 70,
+                    showCursor: true,
+                    onComplete: (self) => {
+                        self.destroy(); // Typed.jsインスタンスを破棄してカーソルを固定
+                        $usernameOutput.text(username); // 表示されたテキストを固定
+                        // パスワード行を表示し、自動入力
+                        setTimeout(() => {
+                            $passwordLine.removeClass('hidden');
+                            new Typed('#passwordOutput', {
+                                strings: ['********'], // パスワードは「********」と表示
+                                typeSpeed: 70,
+                                showCursor: true,
+                                onComplete: (self) => {
+                                    self.destroy(); // Typed.jsインスタンスを破棄してカーソルを固定
+                                    $passwordOutput.text('********'); // 表示されたテキストを固定
+                                    // コマンド行を表示し、自動入力
+                                    setTimeout(() => {
+                                        $commandLine.removeClass('hidden');
+                                        new Typed('#commandOutput', {
+                                            strings: [command],
+                                            typeSpeed: 70,
+                                            showCursor: true,
+                                            onComplete: (self) => {
+                                                self.destroy(); // Typed.jsインスタンスを破棄してカーソルを固定
+                                                $commandOutput.text(command); // 表示されたテキストを固定
+                                                // コマンド実行のメッセージを表示し、豪華な演出を開始
+                                                $output.text('Initializing IT-Office system...');
+                                                startColorfulTransition();
+                                            }
+                                        });
+                                    }, 1000); // コマンド入力開始までの遅延
+                                }
+                            });
+                        }, 1000); // パスワード入力開始までの遅延
                     }
-                }
-            });
+                });
+            }, 2000); // ページロード後、最初の入力開始までの遅延 (例: 2秒)
 
             function startColorfulTransition() {
                 // ターミナルを非表示にして、背景をフェードイン
@@ -198,8 +171,6 @@
                         }, 1000).delay(500).animate({
                             backgroundColor: '#8A2BE2' // BlueViolet
                         }, 1000);
-                        // Vanta.jsの色も変更する (Vanta.jsのオプションを直接変更できるかは要確認、ここでは再初期化の例)
-                        // VANTA.NET({ ... color: 0x00ff00, ... });
                     }, 1000);
 
                     // 新しいコンテンツを表示する準備 (例: "Welcome to IT-Office"など)
