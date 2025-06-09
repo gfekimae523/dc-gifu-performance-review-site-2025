@@ -143,41 +143,17 @@
 
             function startColorfulTransition() {
                 // ターミナルを非表示にして、背景をフェードイン
-                $terminal.fadeOut(1500, function() {
+                $terminal.fadeOut(3000, function() {
                     $('body').css('background-color', '#333'); // 背景色を少し明るく
                     $('#vanta-background').css('opacity', 1); // Vanta.jsをフェードイン
                     $('body').css('color', '#FFF'); // 文字色を白に
 
-                    // Vanta.jsの初期化 (NETSの例)
-                    VANTA.NET({
-                        el: "#vanta-background",
-                        mouseControls: true,
-                        touchControls: true,
-                        gyroControls: false,
-                        minHeight: 200.00,
-                        minWidth: 200.00,
-                        scale: 1.00,
-                        scaleMobile: 1.00,
-                        color: 0x932f2f, // 赤
-                        backgroundColor: 0x1f1f1f // 暗い背景
-                    });
-
-                    // 複数回の背景色変化アニメーション
-                    setTimeout(() => {
-                        $('body').animate({
-                            backgroundColor: '#2E8B57' // SeaGreen
-                        }, 1000).delay(500).animate({
-                            backgroundColor: '#4682B4' // SteelBlue
-                        }, 1000).delay(500).animate({
-                            backgroundColor: '#8A2BE2' // BlueViolet
-                        }, 1000);
-                    }, 1000);
+                    
 
                     // 新しいコンテンツを表示する準備 (例: "Welcome to IT-Office"など)
                     $('body').append('<div id="welcome-message" class="animate__animated animate__zoomIn" style="color: white; font-size: 3em; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0;">Welcome to IT-Office!</div>');
-                    setTimeout(() => {
-                        $('#welcome-message').css('opacity', 1);
-                    }, 2000);
+                    
+                    $('#welcome-message').css('opacity', 1);
                 });
             }
         });
