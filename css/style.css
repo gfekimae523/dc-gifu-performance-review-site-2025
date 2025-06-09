@@ -2,6 +2,7 @@
 body {
     font-family: 'Segoe UI', 'メイリオ', Meiryo, sans-serif; /* 見やすいフォント */
     margin: 0;
+    overflow: hidden;
     padding: 0;
     background-color: #f4f7f6; /* 背景色 */
     color: #333; /* 基本の文字色 */
