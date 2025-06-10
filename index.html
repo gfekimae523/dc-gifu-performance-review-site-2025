@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="index.css">
     <script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/typeit.min.js"></script>
 </head>
+
 <body>
     <!-- ヘッダー -->
     <header class="header">
@@ -26,20 +28,19 @@
         <div class="hero-content">
             <h1>ディーキャリア<br>業績報告会 2024</h1>
             <p>共に歩んだ一年の成長と未来への挑戦</p>
-            <button class="cta-button">詳細を見る</button>
         </div>
     </section>
 
     <!-- 責任者の言葉 -->
     <section class="section message" id="message">
-        <h2 class="section-title">責任者の言葉</h2>
+        <h2 class="section-title">責任者より</h2>
         <div class="section-content">
             <div class="message-content fade-in">
                 <div class="message-image">👨‍💼</div>
                 <div class="message-text">
                     <p>2024年は、ディーキャリアにとって大きな成長の年となりました。多くの利用者の皆様と共に歩み、一人ひとりの可能性を信じ、IT業界での就労を実現することができました。</p>
                     <p>私たちは単なる訓練の場ではなく、一人ひとりの人生に寄り添い、共に未来を創造するパートナーでありたいと考えています。来年もより多くの方々の夢の実現をサポートしてまいります。</p>
-                    <p class="voice-author">- 管理者 田中 太郎</p>
+                    <p class="voice-author">- 責任者 清水 なんちゃら</p>
                 </div>
             </div>
         </div>
@@ -159,16 +160,8 @@
 
     <!-- フッター -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#about">会社概要</a>
-                <a href="#contact">お問い合わせ</a>
-                <a href="#privacy">プライバシーポリシー</a>
-                <a href="#access">アクセス</a>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 D-CAREER. All rights reserved.</p>
-            </div>
+        <div class="copyright">
+            <p>&copy; 2025 D-CAREER. All rights reserved.</p>
         </div>
     </footer>
 
@@ -179,7 +172,7 @@
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150;
-                
+
                 if (elementTop < window.innerHeight - elementVisible) {
                     element.classList.add('visible');
                 }
@@ -203,12 +196,7 @@
             });
         });
 
-        // CTAボタンのクリックイベント
-        document.querySelector('.cta-button').addEventListener('click', function() {
-            document.querySelector('#message').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
     </script>
 </body>
+
 </html>

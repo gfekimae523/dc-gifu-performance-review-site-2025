@@ -332,7 +332,7 @@ body {
     padding: 3rem 0 1rem;
 }
 
-.footer-content {
+/* .footer-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -354,7 +354,7 @@ body {
 
 .footer-links a:hover {
     color: white;
-}
+} */
 
 .copyright {
     border-top: 1px solid #333;
