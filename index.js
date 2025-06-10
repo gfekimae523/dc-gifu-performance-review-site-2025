@@ -24,13 +24,23 @@ window.addEventListener('load', () => {
         speed: 50,
         waitUntilVisible: true
     })
-        .type("> username: guest_user", { delay: 500 })
+        .type("guest_user@IT_office:~$ ")
+        .type("login", { delay: 300 })
         .break()
-        .type("> password: ********", { delay: 500 })
+        .type("username: ")
+        .type("guest_user", { delay: 400 })
         .break()
-        .type("> login successful.", { delay: 500 })
+        .type("password: ")
+        .type("********", { delay: 600 })
         .break()
-        .type("> start IT_office", { delay: 500 })
+        .pause(500)
+        .type("login successful.", { delay: 500 })
+        .break()
+        .pause(500)
+        .type("starting IT_office...", { delay: 400 })
+        .break()
+        .pause(800)
+        .type("system ready.", { delay: 400 })
         .break()
         .exec(() => {
             startProgressBar(() => {
