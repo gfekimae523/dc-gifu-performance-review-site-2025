@@ -1,8 +1,8 @@
 window.addEventListener('load', () => {
 
-    document.querySelectorAll('body > :not(#intro-screen)').forEach(el => {
-        el.style.display = 'none';
-    });
+    // document.querySelectorAll('body > :not(#intro-screen)').forEach(el => {
+    //     el.style.display = 'none';
+    // });
 
     function startProgressBar(callback) {
         const progressBar = document.getElementById('progress-bar');
@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
             startProgressBar(() => {
                 // アニメーション終了 → 本体表示
                 document.getElementById('intro-screen').style.display = 'none';
-                
+
                 document.body.style.overflow = 'auto'; // スクロール復活
             });
         })

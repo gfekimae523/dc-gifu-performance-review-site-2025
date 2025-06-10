@@ -11,6 +11,10 @@ body {
     overflow-x: hidden;
 }
 
+body > :not(.intro-screen) {
+    display: none;
+}
+
 /* アニメーション画面 */
 .intro-screen {
   display: flex;
