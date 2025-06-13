@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>パネルディスカッション表示</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: "Helvetica", sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        #chat-container {
+            padding: 2rem;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .message {
+            max-width: 80%;
+            margin: 1rem 0;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            font-size: 2rem;
+            line-height: 1.5;
+        }
+
+        .speaker {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .left {
+            background-color: #ffffff;
+            align-self: flex-start;
+        }
+
+        .right {
+            background-color: #d1e7dd;
+            align-self: flex-end;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chat-container"></div>
+
+    <script>
+        // 台本（speaker, text）
+        const script = [
+            { speaker: "司会", text: "本日はお集まりいただきありがとうございます。" },
+            { speaker: "パネリストA", text: "本日はよろしくお願いします。" },
+            { speaker: "パネリストB", text: "こちらこそ、楽しみにしていました。" },
+            { speaker: "司会", text: "では、さっそく最初のトピックに入っていきましょう。" },
+            { speaker: "パネリストA", text: "はい、まずは私の考えをお話しします。" }
+        ];
+
+        let currentIndex = 0;
+        const container = document.getElementById('chat-container');
+
+        function showNextMessage() {
+            if (currentIndex >= script.length) return;
+
+            const item = script[currentIndex];
+            const message = document.createElement('div');
+            message.className = 'message ' + (currentIndex % 2 === 0 ? 'left' : 'right');
+
+            const speaker = document.createElement('span');
+            speaker.className = 'speaker';
+            speaker.textContent = item.speaker;
+
+            const text = document.createElement('span');
+            text.textContent = item.text;
+
+            message.appendChild(speaker);
+            message.appendChild(text);
+            container.appendChild(message);
+
+            container.scrollTop = container.scrollHeight;
+            currentIndex++;
+        }
+
+        // 左クリックで次のセリフ
+        document.body.addEventListener('click', showNextMessage);
+    </script>
+</body>
+
+</html>
