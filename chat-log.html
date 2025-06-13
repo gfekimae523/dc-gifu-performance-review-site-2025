@@ -29,19 +29,13 @@
       line-height: 1.5;
       display: inline-block;
       word-break: break-word;
+
+      background-color: #ffffff;
     }
     .speaker {
       font-weight: bold;
       margin-bottom: 0.5rem;
-      display: block;
-    }
-    .left {
-      background-color: #ffffff;
-      align-self: flex-start;
-    }
-    .right {
-      background-color: #d1e7dd;
-      align-self: flex-end;
+      display: flex;
     }
   </style>
 </head>
@@ -65,7 +59,7 @@
 
       const item = script[currentIndex];
       const message = document.createElement('div');
-      message.className = 'message ' + (currentIndex % 2 === 0 ? 'left' : 'right');
+      message.className = 'message';
 
       const speaker = document.createElement('span');
       speaker.className = 'speaker';
