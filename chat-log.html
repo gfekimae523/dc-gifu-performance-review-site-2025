@@ -1,84 +1,114 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <title>パネルディスカッション表示</title>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      font-family: "Helvetica", sans-serif;
-    }
-    #chat-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      height: 100vh;
-      overflow-y: auto;
-      padding: 2rem;
-      box-sizing: border-box;
-    }
-    .message {
-      max-width: 80%;
-      margin: 1rem 0;
-      padding: 1rem 1.5rem;
-      border-radius: 1rem;
-      font-size: 2rem;
-      line-height: 1.5;
-      display: inline-block;
-      word-break: break-word;
+    <meta charset="UTF-8">
+    <title>パネルディスカッション表示</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: 'Helvetica', sans-serif;
+        }
 
-      background-color: #ffffff;
-    }
-    .speaker {
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      display: flex;
-    }
-  </style>
+        .title {
+            margin: 0;
+            padding: 2rem;
+        }
+
+        #chat-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .message {
+            width: 90%;
+            margin: 1rem auto;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            font-size: 2rem;
+            line-height: 1.5;
+            display: flex;
+            overflow-wrap: break-word;
+
+            background-color: #ffffff;
+        }
+
+        .speaker {
+            font-weight: bold;
+        }
+
+        .text {
+            margin-left: 0.5rem;
+        }
+    </style>
 </head>
+
 <body>
-  <div id="chat-container"></div>
+    <h1 class="title">パネルディスカッション</h1>
+    <div id="chat-container"></div>
 
-  <script>
-    const script = [
-      { speaker: "司会", text: "本日はお集まりいただきありがとうございます。" },
-      { speaker: "パネリストA", text: "本日はよろしくお願いします。" },
-      { speaker: "パネリストB", text: "こちらこそ、楽しみにしていました。" },
-      { speaker: "司会", text: "では、さっそく最初のトピックに入っていきましょう。" },
-      { speaker: "パネリストA", text: "はい、まずは私の考えをお話しします。" }
-    ];
+    <script>
+        const script = [
+            { speakerName: 'A', text: '本日はお集まりいただきありがとうございます。' }, 
+            { speakerName: 'B', text: '本日はよろしくお願いします。' }, 
+            { speakerName: 'C', text: 'こちらこそ、楽しみにしていました。' }, 
+            { speakerName: 'A', text: 'では、さっそく最初のトピックに入っていきましょう。' }, 
+            { speakerName: 'B', text: '本文5' }, 
+            { speakerName: 'C', text: '本文6' }, 
+            { speakerName: 'A', text: '本文7' }, 
+            { speakerName: 'B', text: '本文8ああああああああああああああああああああああああああああああああああああああああああああああああ' }, 
+            { speakerName: 'C', text: '本文9' }, 
+            { speakerName: 'A', text: '本文10' }, 
+            { speakerName: 'B', text: '本文11ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ' }, 
+            { speakerName: 'C', text: '本文12' }, 
+            { speakerName: 'A', text: '本文13' }, 
+            { speakerName: 'B', text: '本文14' }, 
+            { speakerName: 'C', text: '本文15' }, 
+        ];
 
-    let currentIndex = 0;
-    const container = document.getElementById('chat-container');
+        const speakerDisplayName = {
+            A: 'Aさん', 
+            B: 'Bさん', 
+            C: 'Cさん', 
+        };
 
-    function showNextMessage() {
-      if (currentIndex >= script.length) return;
+        let currentIndex = 0;
+        const container = document.getElementById('chat-container');
 
-      const item = script[currentIndex];
-      const message = document.createElement('div');
-      message.className = 'message';
+        function showNextMessage() {
+            if (currentIndex >= script.length) return;
 
-      const speaker = document.createElement('span');
-      speaker.className = 'speaker';
-      speaker.textContent = item.speaker;
+            const item = script[currentIndex];
+            const message = document.createElement('div');
+            message.className = 'message';
 
-      const text = document.createElement('span');
-      text.textContent = item.text;
+            const speaker = document.createElement('span');
+            speaker.className = 'speaker';
+            speaker.textContent = speakerDisplayName[item['speakerName']];
 
-      message.appendChild(speaker);
-      message.appendChild(text);
-      container.appendChild(message);
+            const text = document.createElement('span');
+            text.className = 'text';
+            text.textContent = item['text'];
 
-      // スクロールして常に最新発言が見えるように
-      container.scrollTop = container.scrollHeight;
+            message.appendChild(speaker);
+            message.appendChild(text);
+            container.appendChild(message);
 
-      currentIndex++;
-    }
+            // スクロールして常に最新発言が見えるように
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
 
-    document.body.addEventListener('click', showNextMessage);
-  </script>
+            currentIndex++;
+        }
+
+        document.body.addEventListener('click', showNextMessage);
+    </script>
 </body>
+
 </html>
