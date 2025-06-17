@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+
+/* *, *::before, *::after {
+  box-sizing: border-box;
+} */
+
+html {
+
+}
+
+body {
+
+}
+
+.section {
+
+}
+
+.section-title {
+
+}
+
+.header {
+    position: fixed;
+    z-index: 1000;
+}
+
+.nav {
+
+}
+
+.hero {
+    height: 100vh;
+}
+
+.purpose {
+
+}
+
+.flow {
+
+}
+
+.survey {
+
+}
+
+.closing {
+
+}
+
+.footer {
+
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+
+}
