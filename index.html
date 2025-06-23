@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/index.css">
     <script src="js/index.js"></script>
 </head>
+
 <body>
     <header class="header">
         <a href="#" class="header__logo">
@@ -34,31 +36,36 @@
                 いいかんじの<br>
                 キャッチコピー
             </h1>
-            <table class="hero__event-details">
-                <tr>
-                    <td>日時</td>
-                    <td>令和７年　７月２４日(木)</td>
-                </tr>
-                <tr>
-                    <td>会場</td>
-                    <td>
-                        ディーキャリアITエキスパート　岐阜オフィス<br>
-                        岐阜県岐阜市神田町9丁目27番地　大岐阜ビル７階
-                    </td>
-                </tr>
-                <tr>
-                    <td>時間</td>
-                    <td>13:30～15:30</td>
-                </tr>
-            </table>
+            <div class="hero__event-details">
+                <table>
+                    <tr>
+                        <td>日時</td>
+                        <td>令和７年　７月２４日(木)</td>
+                    </tr>
+                    <tr>
+                        <td>会場</td>
+                        <td>
+                            ディーキャリアITエキスパート　岐阜オフィス<br>
+                            岐阜県岐阜市神田町9丁目27番地　大岐阜ビル７階
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>時間</td>
+                        <td>13:30～15:30</td>
+                    </tr>
+                </table>
+            </div>
         </section>
         <section id="purpose" class="purpose section fade-in">
-            <div>
+            <div class="purpose__content">
                 <h2 class="purpose__title section-title">報告会の目的</h2>
-                <p>ディーキャリア岐阜エリアにおける支援実績や就労成果を関係者の皆様と共有し、より深い理解と連携を促進することを目的としています。また、利用者・卒業生の声を通じて、関係各所の皆様へご理解いただく場として企画しております。</p>
+                <p class="purpose__discription">
+                    ディーキャリア岐阜エリアにおける支援実績や就労成果を関係者の皆様と共有し、より深い理解と連携を促進することを目的としています。
+                    また、利用者・卒業生の声を通じて、関係各所の皆様へご理解いただく場として企画しております。
+                </p>
             </div>
-            <div>
-                <img src="img/image5.jpg">
+            <div class="purpose__image-wrapper">
+                <img class="purpose__image" src="img/image5.jpg">
             </div>
         </section>
         <section id="flow" class="flow section fade-in">
@@ -74,15 +81,17 @@
         </section>
         <section id="survey" class="survey section fade-in">
             <h2 class="survey__title section-title">アンケート</h2>
-            <p>アンケートにご協力ください。</p>
+            <p class="survey__discription">今後の参考のため、以下のフォームからアンケートにご協力ください。</p>
+            <a class="survey__link-button" href="" target="_blank" rel="noopener noreferrer">アンケートに回答</a>
         </section>
         <section id="closing" class="closing section fade-in">
             <h2 class="closing__title section-title">終わりに</h2>
-            <p>ありがとうございました。</p>
+            <p class="closing__discription">ありがとうございました。</p>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2025 ディーキャリア岐阜駅前オフィス All rights reserved.</p>
     </footer>
 </body>
+
 </html>
