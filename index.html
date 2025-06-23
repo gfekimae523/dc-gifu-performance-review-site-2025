@@ -10,10 +10,12 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="header__logo">業績報告会2025</h1>
+        <a href="#" class="header__logo">
+            業績報告会2025
+        </a>
         <nav class="nav">
             <ol class="nav__list">
-                <li class="nav_item"><a href="#hero">トップ</a></li>
+                <!-- <li class="nav_item"><a href="#hero">トップ</a></li> -->
                 <li class="nav_item"><a href="#purpose">目的</a></li>
                 <li class="nav_item"><a href="#flow">流れ</a></li>
                 <li class="nav_item"><a href="#survey">アンケート</a></li>
@@ -23,20 +25,41 @@
     </header>
     <main class="main">
         <section id="hero" class="hero">
-            <p>
+            <div class="hero__bg-container">
+                <div class="hero__bg-image"></div>
+                <div class="hero__bg-image"></div>
+                <div class="hero__bg-image"></div>
+            </div>
+            <h1 class="hero__catch-copy">
                 いいかんじの<br>
                 キャッチコピー
-            </p>
-            <p>
-                令和７年　７月２４日(木)<br>
-                会場：ディーキャリアITエキスパート　岐阜オフィス<br>
-                　　　岐阜県岐阜市神田町9丁目27番地　大岐阜ビル７階<br>
-                時間：13:30～15:30
-            </p>
+            </h1>
+            <table class="hero__event-details">
+                <tr>
+                    <td>日時</td>
+                    <td>令和７年　７月２４日(木)</td>
+                </tr>
+                <tr>
+                    <td>会場</td>
+                    <td>
+                        ディーキャリアITエキスパート　岐阜オフィス<br>
+                        岐阜県岐阜市神田町9丁目27番地　大岐阜ビル７階
+                    </td>
+                </tr>
+                <tr>
+                    <td>時間</td>
+                    <td>13:30～15:30</td>
+                </tr>
+            </table>
         </section>
         <section id="purpose" class="purpose section fade-in">
-            <h2 class="purpose__title section-title">報告会の目的</h2>
-            <p>ディーキャリア岐阜エリアにおける支援実績や就労成果を関係者の皆様と共有し、より深い理解と連携を促進することを目的としています。また、利用者・卒業生の声を通じて、関係各所の皆様へご理解いただく場として企画しております。</p>
+            <div>
+                <h2 class="purpose__title section-title">報告会の目的</h2>
+                <p>ディーキャリア岐阜エリアにおける支援実績や就労成果を関係者の皆様と共有し、より深い理解と連携を促進することを目的としています。また、利用者・卒業生の声を通じて、関係各所の皆様へご理解いただく場として企画しております。</p>
+            </div>
+            <div>
+                <img src="img/image5.jpg">
+            </div>
         </section>
         <section id="flow" class="flow section fade-in">
             <h2 class="flow__title section-title">当日の流れ</h2>
@@ -59,7 +82,7 @@
         </section>
     </main>
     <footer class="footer">
-        <p class="footer__copyright">&copy; 2025 D-CAREER. All rights reserved.</p>
+        <p class="footer__copyright">&copy; 2025 ディーキャリア岐阜駅前オフィス All rights reserved.</p>
     </footer>
 </body>
 </html>

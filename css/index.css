@@ -92,8 +92,8 @@ body {
     height: 100vh;
     width: 100%;
     max-width: none;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
+    /* background: linear-gradient(135deg, #667eea, #764ba2); */
+    /* color: white; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,6 +101,56 @@ body {
     text-align: center;
     position: relative;
     padding: 2rem;
+}
+
+.hero__bg-container {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+}
+
+.hero__bg-image:nth-child(1) {
+    background-image: url("../img/image1.jpg");
+}
+
+.hero__bg-image:nth-child(2) {
+    background-image: url("../img/image2.jpg");
+}
+
+.hero__bg-image:nth-child(3) {
+    background-image: url("../img/image3.jpg");
+}
+
+.hero__bg-image {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.hero__bg-image.active {
+    opacity: 1;
+}
+
+.hero__catch-copy {
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    z-index: 1;
+
+    background-color: #FFF;
+    font-size: 3rem;
+}
+
+.hero__event-details {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    z-index: 1;
+
+    background-color: #FFF;
 }
 
 /* .hero h2 {
@@ -113,6 +163,16 @@ body {
     margin-top: 1rem;
     animation: fadeInUp 1s ease-out 0.3s both;
 } */
+
+
+.purpose {
+    display: flex;
+    justify-content: space-between;
+}
+
+.purpose img {
+    height: auto;
+}
 
 /* Flowセクション */
 .flow__list {
