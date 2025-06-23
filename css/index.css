@@ -182,17 +182,6 @@ body {
     /* 長い行の折返しを防ぐ */
 }
 
-/* .hero h2 {
-    font-size: 3rem;
-    animation: fadeInUp 1s ease-out forwards;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    animation: fadeInUp 1s ease-out 0.3s both;
-} */
-
 
 .purpose {
     display: flex;
@@ -204,9 +193,7 @@ body {
 }
 
 .purpose__image-wrapper {
-
     width: 40%;
-    ;
 }
 
 .purpose__image {
@@ -232,7 +219,7 @@ body {
     color: #ffd166;
 } */
 
-/* アンケート・終わりに */
+/* アンケート*/
 
 .survey__link-button {
     display: inline-block;
