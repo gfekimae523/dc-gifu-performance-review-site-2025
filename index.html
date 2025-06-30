@@ -11,20 +11,42 @@
 </head>
 
 <body>
-    <header class="header">
+    <canvas id="magic-canvas"></canvas>
+    <!-- 初期状態 -->
+    <div class="initial-screen" id="initial-screen">
+        <button class="initial-screen__create-world-button">世界をつくる</button>
+    </div>
+
+    <!-- コンソールダイアログ -->
+    <div class="console" id="console">
+        <div class="console__header">
+            <div class="console__dots">
+                <div class="console__dot red"></div>
+                <div class="console__dot yellow"></div>
+                <div class="console__dot green"></div>
+            </div>
+            <div class="console__title">Terminal</div>
+        </div>
+        <div class="console__body" id="console__body">
+            <span class="console__typed-code"></span><span class="console__cursor"></span>
+        </div>
+    </div>
+
+    <header class="header hidden">
         <a href="#" class="header__logo">
             業績報告会2025
         </a>
         <nav class="nav">
             <ol class="nav__list">
                 <!-- <li class="nav_item"><a href="#hero">トップ</a></li> -->
-                <li class="nav_item"><a href="#purpose">目的</a></li>
-                <li class="nav_item"><a href="#flow">流れ</a></li>
-                <li class="nav_item"><a href="#survey">アンケート</a></li>
+                <li class="nav__item"><a href="#purpose">目的</a></li>
+                <li class="nav__item"><a href="#flow">流れ</a></li>
+                <li class="nav__item"><a href="#survey">アンケート</a></li>
                 <!-- <li class="nav_item"><a href="#closing">終わりに</a></li> -->
             </ol>
         </nav>
     </header>
+    
     <main class="main">
         <section id="hero" class="hero">
             <div class="hero__bg-container">
@@ -33,8 +55,8 @@
                 <div class="hero__bg-image"></div>
             </div>
             <h1 class="hero__catch-copy">
-                いいかんじの<br>
-                キャッチコピー
+                あなたのコードが<br>
+                世界をつくる
             </h1>
             <div class="hero__event-details">
                 <table>
@@ -79,11 +101,11 @@
                 <li class="flow__item">パネルディスカッション</li>
             </ol>
         </section>
-        <section id="survey" class="survey section fade-in">
+        <!-- <section id="survey" class="survey section fade-in">
             <h2 class="survey__title section-title">アンケート</h2>
             <p class="survey__discription">今後の参考のため、以下のフォームからアンケートにご協力ください。</p>
             <a class="survey__link-button" href="" target="_blank" rel="noopener noreferrer">アンケートに回答</a>
-        </section>
+        </section> -->
         <section id="closing" class="closing section fade-in">
             <h2 class="closing__title section-title">終わりに</h2>
             <p class="closing__discription">これまでの歩みを胸に、これからの挑戦へ。今後のディーキャリアにも、どうぞご期待ください。</p>

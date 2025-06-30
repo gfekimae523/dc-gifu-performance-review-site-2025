@@ -14,6 +14,151 @@ body {
     background-color: #fdfdfd;
 }
 
+/* 初期状態：真っ白なページ */
+.initial-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 8000;
+    transition: opacity 0.5s ease;
+}
+
+.initial-screen__create-world-button {
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInButton 2s ease forwards;
+}
+
+@keyframes fadeInButton {
+    to {
+        opacity: 1;
+    }
+}
+
+.initial-screen__create-world-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* コンソールダイアログ */
+.console {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    width: 600px;
+    height: 500px;
+    background: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    z-index: 7000;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.8s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.console.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.console__header {
+    background: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+    line-height: 1rem;
+    gap: 12px;
+}
+
+.console__dots {
+    display: flex;
+    gap: 8px;
+}
+
+.console__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.console__dot.red {
+    background: #ff5f57;
+}
+
+.console__dot.yellow {
+    background: #ffbd2e;
+}
+
+.console__dot.green {
+    background: #28ca42;
+}
+
+.console__title {
+
+}
+
+.console__body {
+    padding: 0 20px;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    background: #1e1e1e;
+    color: #00ff41;
+    font-size: 0.8rem;
+
+    white-space: pre-wrap; /* 改行とスペースを保持 */
+}
+
+.code-line {
+    opacity: 0;
+    animation: typeIn 0.5s ease forwards;
+    margin-bottom: 5px;
+}
+
+@keyframes typeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.console__cursor {
+    display: inline-block;
+    background: #00ff41;
+    width: 2px;
+    height: 0.8rem;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
 /* ヘッダー */
 .header {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
@@ -26,6 +171,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    opacity: 0;
+    transition: opacity 3s ease;
 }
 
 .header__logo {
@@ -41,7 +189,7 @@ body {
     gap: 1rem;
 }
 
-.nav_item a {
+.nav__item a {
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -50,7 +198,7 @@ body {
     transition: background 0.3s;
 }
 
-.nav_item a:hover {
+.nav__item a:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
@@ -102,6 +250,8 @@ body {
     justify-content: center;
     position: relative;
     padding: 2rem;
+
+    opacity: 0;
 }
 
 .hero__bg-container {
@@ -186,6 +336,8 @@ body {
 .purpose {
     display: flex;
     justify-content: space-between;
+
+    opacity: 0;
 }
 
 .purpose__content {
@@ -202,6 +354,10 @@ body {
 }
 
 /* Flowセクション */
+.flow {
+    opacity: 0;
+}
+
 .flow__list {
     padding-left: 1rem;
     list-style-type: disc;
@@ -220,6 +376,9 @@ body {
 } */
 
 /* アンケート*/
+.survey {
+    opacity: 0;
+}
 
 .survey__link-button {
     display: inline-block;
@@ -240,6 +399,8 @@ body {
     text-align: center;
     padding: 3rem 0rem 1rem;
     font-size: 0.9rem;
+
+    opacity: 0;
 }
 
 .footer__copyright {
@@ -270,6 +431,16 @@ body {
     transform: translateY(0);
 }
 
+#magic-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    z-index: 9000;
+    pointer-events: none;
+}
+
 /* レスポンシブ */
 @media (max-width: 768px) {
 
@@ -279,5 +450,3 @@ body {
         display: none;
     }
 }
-
-

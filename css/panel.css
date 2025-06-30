@@ -1,0 +1,88 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.talk-panel__title {
+    margin: 0;
+    padding: 1rem;
+
+    font-size: 2rem;
+}
+
+.talk-panel__message-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+}
+
+.talk-panel__message {
+    width: 90%;
+    margin: 1rem auto;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    line-height: 1.5;
+    display: flex;
+    overflow-wrap: break-word;
+
+    background-color: #ffffff;
+}
+
+
+
+
+
+.talk-panel__speaker-image {
+    width: 100px;
+    height: 100px;
+
+    background-color: #FFF;
+    border-radius: 50%;
+    border: 3px solid #000;
+    
+}
+
+.A {
+    background-color: #FEE;
+    box-shadow: 4px 4px 2px rgba(255, 100, 100, 0.8);
+}
+
+.B {
+    background-color: #EFE;
+    box-shadow: 4px 4px 2px rgba(100, 255, 100, 0.8);
+}
+
+.C {
+    background-color: #EEF;
+    box-shadow: 4px 4px 2px rgba(100, 100, 255, 0.8);
+}
+
+.A .talk-panel__speaker-image {
+    border-color: #F44;
+}
+
+.B .talk-panel__speaker-image {
+    border-color: #4F4;
+}
+
+.C .talk-panel__speaker-image {
+    border-color: #44F;
+}
+
+.talk-panel__speaker-name {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.talk-panel__text {
+    margin-left: 1rem;
+
+    font-size: 1.5rem;
+}
