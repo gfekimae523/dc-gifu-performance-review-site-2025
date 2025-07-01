@@ -29,31 +29,69 @@ body {
     transition: opacity 0.5s ease;
 }
 
-.initial-screen__create-world-button {
-    padding: 20px 40px;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+.initial-screen__button-wrapper {
     opacity: 0;
-    animation: fadeInButton 2s ease forwards;
+    animation: fadeInUp 1s ease-out 1s forwards;
 }
 
-@keyframes fadeInButton {
-    to {
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
         opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.initial-screen__create-world-button {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #86A;
+
+    position: relative;
+    overflow: hidden;
+
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+
+.initial-screen__create-world-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 100%;
     }
 }
 
 .initial-screen__create-world-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(6px);
+    box-shadow: none;
 }
+
 
 /* コンソールダイアログ */
 .console {
@@ -111,9 +149,7 @@ body {
     background: #28ca42;
 }
 
-.console__title {
-
-}
+.console__title {}
 
 .console__body {
     padding: 0 20px;
@@ -123,7 +159,8 @@ body {
     color: #00ff41;
     font-size: 0.8rem;
 
-    white-space: pre-wrap; /* 改行とスペースを保持 */
+    white-space: pre-wrap;
+    /* 改行とスペースを保持 */
 }
 
 .code-line {
@@ -172,8 +209,7 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    opacity: 0;
-    transition: opacity 3s ease;
+    transition: all 3s ease;
 }
 
 .header__logo {
@@ -293,13 +329,26 @@ body {
 
 .hero__catch-copy {
     position: absolute;
-    top: 30%;
-    left: 15%;
+    top: 25%;
+    left: 10%;
     z-index: 1;
 
-    background-color: #FFF;
+    background-color: rgba(255, 255, 255, 0.6);
+    /* 半透明 */
+    backdrop-filter: blur(5px);
+    /* 背景ぼかし（対応ブラウザのみ） */
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
     font-size: 3rem;
-    padding: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+
+    padding: 1.5rem 2rem;
+    max-width: 80%;
+    color: #222;
+    /* 黒に近い濃いグレー */
 }
 
 .hero__event-details {
@@ -310,6 +359,8 @@ body {
 
     background-color: #FFF;
     padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #000;
 
     /* border-collapse: separate; */
     /* セル間に隙間を作る */
@@ -421,14 +472,14 @@ body {
 
 /* スクロールアニメーション */
 .fade-in {
+    visibility: hidden;
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
+    transition: opacity 2s ease;
 }
 
 .fade-in.visible {
+    visibility: visible;
     opacity: 1;
-    transform: translateY(0);
 }
 
 #magic-canvas {

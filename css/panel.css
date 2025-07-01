@@ -7,6 +7,10 @@ body {
     font-family: 'Helvetica', sans-serif;
 }
 
+img {
+    display: block;
+}
+
 .talk-panel__title {
     margin: 0;
     padding: 1rem;
@@ -24,28 +28,46 @@ body {
 
 .talk-panel__message {
     width: 90%;
+    max-width: 1000px;
     margin: 1rem auto;
-    padding: 1rem 1.5rem;
+    padding: 0.2rem 1rem;
     border-radius: 1rem;
     line-height: 1.5;
     display: flex;
+    font-size: 1.5rem;
     overflow-wrap: break-word;
 
     background-color: #ffffff;
 }
 
+.talk-panel__message:first-of-type {
+    transition: opacity 0.3s ease;
+    animation: popup 1s ease;
+}
 
+@keyframes popup {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.talk-panel__speaker-info {
+    display: block;
+}
 
 
 
 .talk-panel__speaker-image {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 
     background-color: #FFF;
     border-radius: 50%;
     border: 3px solid #000;
-    
+
 }
 
 .A {
@@ -75,14 +97,26 @@ body {
     border-color: #44F;
 }
 
+.talk-panel__message:first-of-type .talk-panel__speaker-image {
+    width: 100px;
+    height: 100px;
+}
+
 .talk-panel__speaker-name {
+    display: none;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-.talk-panel__text {
-    margin-left: 1rem;
+.talk-panel__message:first-of-type .talk-panel__speaker-name {
+    display: block;
+}
 
-    font-size: 1.5rem;
+.talk-panel__text {
+    margin: 1rem;
+}
+
+.talk-panel__message:first-of-type .talk-panel__text {
+    font-size: 2rem;
 }
