@@ -1,12 +1,15 @@
 // 定数の宣言
 // 1文字あたりの表示速度（ミリ秒）
-const TYPING_SPEED = 20;
+const TYPING_SPEED = 18;
 
 
 // DOM要素
 let openingElement;
 let openingButton;
 let consoleElement;
+let consoleRedButton;
+let consoleYellowButton;
+let consoleGreenButton;
 let consoleCodeElement;
 let consoleBodyElement;
 let canvasElement;
@@ -43,6 +46,9 @@ function cacheDomElements() {
     openingElement = document.querySelector('.opening');
     openingButton = document.querySelector('.opening__button');
     consoleElement = document.querySelector('.console');
+    consoleRedButton = document.querySelector('.console__red-button');
+    consoleYellowButton = document.querySelector('.console__yellow-button');
+    consoleGreenButton = document.querySelector('.console__green-button');
     consoleCodeElement = document.querySelector('.console__code');
     consoleBodyElement = document.querySelector('.console__body');
     canvasElement = document.querySelector('.canvas');
@@ -55,6 +61,15 @@ function setupEventListeners() {
     window.addEventListener('resize', resizeCanvas);
     openingButton.addEventListener('click', () => {
         createWorld();
+    });
+    consoleRedButton.addEventListener('click', () => {
+        handleRedButtonClick();
+    });
+    consoleYellowButton.addEventListener('click', () => {
+        handleYellowButtonClick();
+    });
+    consoleGreenButton.addEventListener('click', () => {
+        handleGreenButtonClick();
     });
 }
 
@@ -77,7 +92,8 @@ function createWorld() {
     setTimeout(() => {
         window.scroll(0, 0);
         openingElement.style.display = 'none';
-        consoleElement.classList.add('active');
+        consoleElement.classList.remove('console--hidden');
+        consoleElement.classList.add('console--visible');
         document.body.style.overflowY = 'auto';
         typeWriter();
     }, 1000);
@@ -149,16 +165,56 @@ function typeWriter() {
         charIndex++;
         setTimeout(typeWriter, TYPING_SPEED);
     } else {
-        setTimeout(closeConsole, 2000);
-        setInterval(showNextImage, 5000);
+        setTimeout(endAnimation, 2000);
+        //setInterval(showNextImage, 5000);
         return;
     }
+}
+
+function resetConsoleStateClasses() {
+    consoleElement.classList.remove('console--hidden', 'console--visible', 'console--maximized', 'console--minimized');
+}
+
+function handleRedButtonClick() {
+    consoleElement.classList.add('console--hidden');
+}
+
+function handleYellowButtonClick() {
+    if (consoleElement.classList.contains('console--minimized')) {
+        resetConsoleStateClasses();
+        consoleElement.classList.add('console--visible');
+    } else {
+        resetConsoleStateClasses();
+        consoleElement.classList.add('console--minimized');
+    }
+}
+
+function handleGreenButtonClick() {
+    if (consoleElement.classList.contains('console--maximized')) {
+        resetConsoleStateClasses();
+        consoleElement.classList.add('console--visible');
+    } else {
+        resetConsoleStateClasses();
+        consoleElement.classList.add('console--maximized');
+    }
+}
+
+function minimizeConsole() {
+
+}
+
+function maximizeConsole() {
+
+}
+
+function restoreConsole() {
+
 }
 
 function animate() {
     ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 
-    let y = time * 1.4;
+    let y = time * 1.6;
     let x = canvasElement.width / 2 + Math.sin(time * 0.02) * canvasElement.width / 2 * 0.94;
     createParticle(x, y);
     createParticle(canvasElement.width - x, y);
@@ -183,7 +239,7 @@ function drawMask(offsetY) {
 
     const grad = ctx.createLinearGradient(0, offsetY - gradientMargin, 0, offsetY + gradientHeight);
     grad.addColorStop(0, 'rgba(255, 255, 255, 0)');
-    grad.addColorStop(0.07, 'rgba(255,255,255,1)');
+    grad.addColorStop(0.08, 'rgba(255,255,255,1)');
 
     ctx.fillStyle = grad;
     ctx.fillRect(0, offsetY - gradientMargin, canvasElement.width, gradientHeight + gradientMargin);
@@ -255,14 +311,16 @@ function getRandomPastelColor() {
 }
 
 
-function closeConsole() {
+function endAnimation() {
     const console = document.querySelector('.console');
     console.style.opacity = '0';
     console.style.transform = 'translateX(100px)';
 
+    activateInteractions();
+    setInterval(showNextImage, 5000);
+
     setTimeout(() => {
         console.style.display = 'none';
-        activateInteractions();
     }, 800);
 }
 

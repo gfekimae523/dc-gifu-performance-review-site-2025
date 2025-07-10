@@ -105,19 +105,62 @@ body {
 /* コンソールダイアログ */
 .console {
     position: fixed;
+
     top: 10%;
     right: 0;
     width: 40%;
     max-width: 800px;
     height: 60%;
+
     background: #1e1e1e;
     border-radius: 10px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     z-index: 7000;
-    opacity: 0;
-    transform: translateX(100px);
     transition: all 0.8s ease;
     font-family: 'Courier New', monospace;
+}
+
+
+
+.console--visible {
+    opacity: 0.8;
+
+    top: 10%;
+    right: 0;
+    width: 40%;
+    max-width: 800px;
+    height: 60%;
+
+    transform: translateX(0);
+}
+
+.console--minimized {
+    opacity: 0.8;
+
+    bottom: 0;
+    right: 0;
+    width: 40%;
+    max-width: 800px;
+    height: 10%;
+
+    transform: translateX(0);
+}
+
+.console--maximized {
+    opacity: 0.8;
+
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    transform: translateX(0);
+}
+
+.console--hidden {
+    opacity: 0;
+
+    transform: translateX(200px);
 }
 
 .console.active {
@@ -136,26 +179,28 @@ body {
     gap: 12px;
 }
 
-.console__dots {
+.console__buttons-wrapper {
     display: flex;
     gap: 8px;
 }
 
-.console__dot {
-    width: 12px;
-    height: 12px;
+.console__button {
+    width: 0.8rem;
+    height: 0.8rem;
     border-radius: 50%;
+
+    border: none;
 }
 
-.console__dot.red {
+.console__red-button {
     background: #ff5f57;
 }
 
-.console__dot.yellow {
+.console__yellow-button {
     background: #ffbd2e;
 }
 
-.console__dot.green {
+.console__green-button {
     background: #28ca42;
 }
 
@@ -169,7 +214,7 @@ body {
     font-size: 0.8rem;
 
     white-space: pre-wrap;
-    
+
     overflow: hidden;
 }
 
