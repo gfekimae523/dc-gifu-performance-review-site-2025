@@ -11,16 +11,16 @@
 </head>
 
 <body>
-    <canvas id="magic-canvas"></canvas>
-    <!-- 初期状態 -->
-    <div class="initial-screen" id="initial-screen">
-        <div class="initial-screen__button-wrapper">
-            <button class="initial-screen__create-world-button">Hello, World!</button>
+
+    <!-- 演出開始前の初期画面 -->
+    <div class="opening">
+        <div class="opening__button-wrapper">
+            <button class="opening__button">Hello, World!</button>
         </div>
     </div>
 
-    <!-- コンソールダイアログ -->
-    <div class="console" id="console">
+    <!-- コンソール風画面 -->
+    <div class="console">
         <div class="console__header">
             <div class="console__dots">
                 <div class="console__dot red"></div>
@@ -29,16 +29,19 @@
             </div>
             <div class="console__title">Terminal</div>
         </div>
-        <div class="console__body" id="console__body">
-            <span class="console__typed-code"></span><span class="console__cursor"></span>
+        <div class="console__body">
+            <span class="console__code"></span><span class="console__cursor"></span>
         </div>
     </div>
+    <!--- キャンバス要素 -->
+    <canvas class="canvas"></canvas>
 
-    <header class="header fade-in">
-        <a href="#" class="header__logo fade-in">
-            業績報告会2025
+
+    <header class="header">
+        <a href="#" class="header__logo">
+            ディーキャリア岐阜駅前オフィス　業績報告会2025
         </a>
-        <nav class="nav fade-in">
+        <nav class="nav">
             <ol class="nav__list">
                 <!-- <li class="nav_item"><a href="#hero">トップ</a></li> -->
                 <li class="nav__item"><a href="#purpose">目的</a></li>
@@ -50,17 +53,17 @@
     </header>
 
     <main class="main">
-        <section class="hero fade-in">
+        <section class="hero">
             <div class="hero__bg-container">
                 <div class="hero__bg-image"></div>
                 <div class="hero__bg-image"></div>
                 <div class="hero__bg-image"></div>
             </div>
-            <h1 class="hero__catch-copy fade-in">
+            <h1 class="hero__catch-copy">
                 あなたのコードが<br>
                 世界をつくる
             </h1>
-            <div class="hero__event-details fade-in">
+            <div class="hero__event-details">
                 <table>
                     <tr>
                         <td>日時</td>
@@ -80,43 +83,59 @@
                 </table>
             </div>
         </section>
-        <section id="purpose" class="purpose section fade-in">
-            <div class="purpose__content">
-                <h2 class="purpose__title section-title">報告会の目的</h2>
-                <p class="purpose__discription">
-                    ディーキャリア岐阜エリアにおける支援実績や就労成果を関係者の皆様と共有し、より深い理解と連携を促進することを目的としています。
-                    また、利用者・卒業生の声を通じて、関係各所の皆様へご理解いただく場として企画しております。
+        <section class="news section">
+            <div class="news__content section-content">
+                <h2 class="news__title section-title">IT 始めました</h2>
+                <p class="news__discription section-discription">
+                    ディーキャリア岐阜駅前オフィスから独立して、IT専門のオフィスが開所しました。<br>
+                    プログラミングを学んで、IT業界への就職を目指すことができます。
                 </p>
             </div>
-            <div class="purpose__image-wrapper">
-                <img class="purpose__image" src="img/image5.jpg">
+            <div class="news__image-wrapper section-image-wrapper">
+                <img class="news__image section-image" src="img/image4.jpg">
             </div>
         </section>
-        <section id="flow" class="flow section fade-in">
-            <h2 class="flow__title section-title">当日の流れ</h2>
-            <ol class="flow__list">
-                <li class="flow__item">責任者あいさつ</li>
-                <li class="flow__item">取り組み</li>
-                <li class="flow__item">ITオフィスの紹介</li>
-                <li class="flow__item">業績報告</li>
-                <li class="flow__item">利用者・スタッフによる報告</li>
-                <li class="flow__item">パネルディスカッション</li>
-            </ol>
+        <section id="purpose" class="purpose section">
+            <div class="purpose__content section-content">
+                <h2 class="purpose__title section-title">これまでの歩みを振り返る</h2>
+                <p class="purpose__discription section-discription">
+                    これまでのディーキャリアを振り返る業績報告会を実施します。
+                </p>
+            </div>
+            <div class="purpose__image-wrapper section-image-wrapper">
+                <img class="purpose__image section-image" src="img/image4.jpg">
+            </div>
         </section>
-        <!-- <section id="survey" class="survey section fade-in">
-            <h2 class="survey__title section-title">アンケート</h2>
-            <p class="survey__discription">今後の参考のため、以下のフォームからアンケートにご協力ください。</p>
-            <a class="survey__link-button" href="" target="_blank" rel="noopener noreferrer">アンケートに回答</a>
-        </section> -->
-        <section id="closing" class="closing section fade-in">
-            <h2 class="closing__title section-title">終わりに</h2>
-            <p class="closing__discription">
-                これまでの歩みを胸に、これからの挑戦へ。<br>
-                今後のディーキャリアにも、どうぞご期待ください。
-            </p>
+        <section id="flow" class="flow section">
+            <div class="flow__content section-content">
+                <h2 class="flow__title section-title">当日の流れ</h2>
+                <ol class="flow__list">
+                    <li class="flow__item">責任者あいさつ</li>
+                    <li class="flow__item">取り組み</li>
+                    <li class="flow__item">ITオフィスの紹介</li>
+                    <li class="flow__item">業績報告</li>
+                    <li class="flow__item">利用者・スタッフによる報告</li>
+                    <li class="flow__item">パネルディスカッション</li>
+                </ol>
+            </div>
+            <div class="flow__image-wrapper section-image-wrapper">
+                <img class="flow__image section-image" src="img/image4.jpg">
+            </div>
+        </section>
+        <section id="closing" class="closing section">
+            <div class="closing__content section-content">
+                <!-- <h2 class="closing__title section-title">終わりに</h2> -->
+                <p class="closing__discription section-discription">
+                    明るく楽しくをモットーに。<br>
+                    利用者さんに寄り添った事業所を目指していきます。
+                </p>
+            </div>
+            <div class="closing__image-wrapper section-image-wrapper">
+                <img class="closing__image section-image" src="img/image4.jpg">
+            </div>
         </section>
     </main>
-    <footer class="footer fade-in">
+    <footer class="footer">
         <p class="footer__copyright">&copy; 2025 ディーキャリア岐阜駅前オフィス All rights reserved.</p>
     </footer>
 </body>
