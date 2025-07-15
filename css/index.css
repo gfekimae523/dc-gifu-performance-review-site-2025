@@ -270,6 +270,11 @@ body {
     left: 0;
     z-index: 6000;
     pointer-events: none;
+    transition: all 0.8s ease;
+}
+
+.canvas--hidden {
+    opacity: 0;
 }
 
 
@@ -318,6 +323,7 @@ body {
 /* セクション */
 .section {
     display: flex;
+    gap: 1rem;
 
     margin: 4rem auto;
     padding: 1rem 2rem;
@@ -339,7 +345,8 @@ body {
 
 .section-title {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
     position: relative;
     display: inline-block;
     color: #2a5298;

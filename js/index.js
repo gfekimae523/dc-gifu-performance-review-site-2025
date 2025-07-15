@@ -120,7 +120,6 @@ function typeWriter() {
       <ol class="nav__list">
         <li>目的</li>
         <li>流れ</li>
-        <li>アンケート</li>
       </ol>
     </nav>
   </header>
@@ -128,8 +127,8 @@ function typeWriter() {
     <section class="hero">
       <div class="hero__bg-container"></div>
       <h1 class="hero__catch-copy">
-        あなたのコードが<br>
-        世界をつくる
+        強みを仕事に<br>
+        弱みに工夫を！
       </h1>
      <div class="hero__event-details"></div>
     </section>
@@ -176,7 +175,7 @@ function resetConsoleStateClasses() {
 }
 
 function handleRedButtonClick() {
-    consoleElement.classList.add('console--hidden');
+    endAnimation();
 }
 
 function handleYellowButtonClick() {
@@ -312,15 +311,18 @@ function getRandomPastelColor() {
 
 
 function endAnimation() {
-    const console = document.querySelector('.console');
-    console.style.opacity = '0';
-    console.style.transform = 'translateX(100px)';
+    // const console = document.querySelector('.console');
+    // console.style.opacity = '0';
+    // console.style.transform = 'translateX(100px)';
+    consoleElement.classList.add('console--hidden');
+    canvasElement.classList.add('canvas--hidden');
 
     activateInteractions();
     setInterval(showNextImage, 5000);
 
     setTimeout(() => {
-        console.style.display = 'none';
+        consoleElement.style.display = 'none';
+        canvasElement.style.display = 'none';
     }, 800);
 }
 
