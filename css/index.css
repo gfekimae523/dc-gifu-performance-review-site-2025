@@ -281,7 +281,7 @@ body {
 
 /* ヘッダー */
 .header {
-    background: linear-gradient(0deg, #cf2e2e, #eb8f8f);
+    background: linear-gradient(0deg, #cf2e2e, #e45b5b);
     color: white;
     padding: 0.5rem 2rem;
     /* position: fixed; */

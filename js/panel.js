@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const speakerNameMap = {
-        A: 'Aさん',
-        B: 'Bさん',
+        A: '清水さん',
+        B: '櫻本さん',
         C: 'Cさん',
     };
 
@@ -13,20 +13,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const scriptLines = [
-        { speaker: 'A', text: '本日はお集まりいただきありがとうございます。' },
-        { speaker: 'B', text: '本日はよろしくお願いします。' },
-        { speaker: 'C', text: 'こちらこそ、楽しみにしていました。' },
-        { speaker: 'A', text: 'では、さっそく最初のトピックに入っていきましょう。' },
-        { speaker: 'C', text: '本文5' },
-        { speaker: 'A', text: '本文6' },
-        { speaker: 'B', text: '本文7' },
-        { speaker: 'A', text: '本文8' },
-        { speaker: 'B', text: '本文9' },
-        { speaker: 'C', text: '本文10' },
-        { speaker: 'C', text: '本文11' },
-        { speaker: 'A', text: '本文12' },
-        { speaker: 'C', text: '本文13' },
-        { speaker: 'B', text: '本文14' },
+        { speaker: 'A', text: '本日はご多用の中、パネルディスカッションにご参加いただき誠にありがとうございます。' },
+        { speaker: 'A', text: '本セッションでは、実際に就労移行支援事業所を利用し、企業へ就職された卒業生の声と、その受け入れ企業様の生の声を通して、就労支援と障がい者雇用のリアルな実情を皆さまにお伝えしてまいります。' },
+        { speaker: 'A', text: '初めに、今回ご登壇いただいております岐阜精機工業株式会社様のご紹介をさせていただきます。' },
+        { speaker: 'A', text: '経営管理部経営グループリーダーの田中様よろしくお願いいたします。' },
+        { speaker: 'A', text: '田中様　ありがとうございました。' },
+        { speaker: 'A', text: '続きまして本日の登壇者をご紹介します。' },
+        { speaker: 'A', text: 'まずは、ディーキャリア卒業生で岐阜精機工業株式会社にご就職された櫻本さん。' },
+        { speaker: 'A', text: '次に、受け入れ企業である岐阜精機工業株式会社：櫻本さんの上司であります、品質保証部検査グループ　グループリーダーの杉山様' },
+        { speaker: 'A', text: 'そして、就労移行支援事業所ディーキャリア岐阜駅前オフィスの清水です。どうぞよろしくお願いいたします。' },
+        { speaker: 'A', text: 'どうですか？少し緊張されておりますか？' },
+        { speaker: 'A', text: '通い始めた頃は、どんな1日を過ごしていました？' },
+        { speaker: 'B', text: '通所に慣れるまでは、乱れた生活習慣を整えていくのが大変でした。' },
+        { speaker: 'A', text: '本文13' },
+        { speaker: 'A', text: '本文14' },
         { speaker: 'C', text: '本文15' },
         { speaker: 'A', text: '本文16' },
         { speaker: 'B', text: '本文17' },
