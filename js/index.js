@@ -198,19 +198,10 @@ function handleGreenButtonClick() {
     }
 }
 
-function minimizeConsole() {
 
-}
-
-function maximizeConsole() {
-
-}
-
-function restoreConsole() {
-
-}
 
 function animate() {
+    //再描画
     ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 
     let y = time * 1.6;
