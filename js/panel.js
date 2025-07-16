@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const speakerNameMap = {
         A: '清水さん',
         B: '櫻本さん',
-        C: '杉山様',
+        C: '杉山さま',
     };
 
     const speakerImageSrcMap = {
