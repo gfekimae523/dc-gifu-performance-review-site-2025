@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const speakerNameMap = {
         A: '清水さん',
         B: '櫻本さん',
-        C: 'Cさん',
+        C: '杉山様',
     };
 
     const speakerImageSrcMap = {
-        A: 'img/image7.png', 
-        B: 'img/image8.png', 
-        C: 'img/image6.png',
+        A: 'img/panel/faceIcon_A.png', 
+        B: 'img/panel/faceIcon_B.png', 
+        C: 'img/panel/faceIcon_C.png',
     }
 
     const scriptLines = [
