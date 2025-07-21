@@ -19,6 +19,7 @@ let heroBgImages;
 
 
 let isCreating = false;
+let hasExecuted = false;
 
 // consoleの処理
 let charIndex = 0;
@@ -306,19 +307,25 @@ function getRandomPastelColor() {
 
 
 function endAnimation() {
+    if (!hasExecuted) { // まだ実行されていない場合のみ
+        consoleElement.classList.add('console--hidden');
+        canvasElement.classList.add('canvas--hidden');
+
+        activateInteractions();
+        setInterval(showNextImage, 5000);
+
+        setTimeout(() => {
+            consoleElement.style.display = 'none';
+            canvasElement.style.display = 'none';
+        }, 800);
+        hasExecuted = true; // 実行後フラグをtrueに設定
+    } else {
+
+    }
     // const console = document.querySelector('.console');
     // console.style.opacity = '0';
     // console.style.transform = 'translateX(100px)';
-    consoleElement.classList.add('console--hidden');
-    canvasElement.classList.add('canvas--hidden');
 
-    activateInteractions();
-    setInterval(showNextImage, 5000);
-
-    setTimeout(() => {
-        consoleElement.style.display = 'none';
-        canvasElement.style.display = 'none';
-    }, 800);
 }
 
 function activateInteractions() {
