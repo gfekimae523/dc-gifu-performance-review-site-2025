@@ -209,7 +209,9 @@ function animate() {
     //再描画
     ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 
-    let y = time * 2.0;
+    let vy =canvasElement.height / 1350;
+
+    let y = time * vy;
     let x = canvasElement.width / 2 + Math.sin(time * 0.02) * canvasElement.width / 2 * 0.94;
     createParticle(x, y);
     createParticle(canvasElement.width - x, y);
