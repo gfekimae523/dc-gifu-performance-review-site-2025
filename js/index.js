@@ -1,6 +1,6 @@
 // 定数の宣言
 // 1文字あたりの表示速度（ミリ秒）
-const TYPING_SPEED = 16;
+const TYPING_SPEED = 12;
 
 
 // DOM要素
@@ -92,6 +92,7 @@ function createWorld() {
 
     // 初期画面をフェードアウト
     openingElement.style.opacity = '0';
+    resizeCanvas();
     drawMask(0);
 
     setTimeout(() => {
@@ -104,7 +105,7 @@ function createWorld() {
     }, 1000);
     setTimeout(() => {
         animate();
-    }, 3000);
+    }, 5000);
 }
 
 function typeWriter() {
@@ -120,13 +121,7 @@ function typeWriter() {
 </head>
 <body>
   <header class="header">
-    <a href="#" class="header__logo">業績報告会2025</a>
-    <nav class="nav">
-      <ol class="nav__list">
-        <li>目的</li>
-        <li>流れ</li>
-      </ol>
-    </nav>
+    <img class="header__logo" src="img/index/logo.webp">
   </header>
   <main class="main">
     <section class="hero">
@@ -135,24 +130,34 @@ function typeWriter() {
         強みを仕事に<br>
         弱みに工夫を！
       </h1>
-     <div class="hero__event-details"></div>
     </section>
-    <section class="purpose">
-      <div class="purpose__content">
-        <h2 class="purpose__title section-title">報告会の目的</h2>
-        <p class="purpose__discription"></p>
+    <section class="news">
+      <div class="news__content">
+        <h2 class="news__title">IT 始めました</h2>
+        <p class="news__discription"></p>
       </div>
-      <div class="purpose__image-wrapper">
-        <img class="purpose__image">
-      </div>
+      <img class="news__image" src="img/index/news_1.jpg">
     </section>
-    <section id="flow" class="flow">
-      <h2 class="flow__title section-title">当日の流れ</h2>
-      <ol class="flow__list"></ol>
+    <section class="event">
+      <div class="event__content">
+        <h2 class="event__title">業績報告会2025</h2>
+        <p class="event__discription"></p>
+        <div class="event__details"></div>
+      </div>
+      <img class="event__image" src="img/index/event_1.png">
+    </section>
+    <section class="flow">
+      <div class="flow__content">
+        <h2 class="flow__title">プログラム</h2>
+        <ol class="flow__list"></ol>
+      </div>
+      <img class="flow__image" src="img/index/flow_1.jpg">
     </section>
     <section id="closing" class="closing">
-      <h2 class="closing__title section-title">終わりに</h2>
-      <p class="closing__discription"></p>
+      <div class=closing__content">
+        <p class="closing__discription"></p>
+      </div>
+      <img class="closing__image" src="img/index/closing.jpg">
     </section>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2025 ディーキャリア岐阜駅前オフィス All rights reserved.</p>
@@ -209,7 +214,7 @@ function animate() {
     //再描画
     ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 
-    let vy =canvasElement.height / 1350;
+    let vy =canvasElement.height / 1000;
 
     let y = time * vy;
     let x = canvasElement.width / 2 + Math.sin(time * 0.02) * canvasElement.width / 2 * 0.94;
