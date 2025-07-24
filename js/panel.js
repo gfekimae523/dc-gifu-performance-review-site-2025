@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const speakerImageSrcMap = {
         A: 'img/panel/faceIcon_A.jpg', 
-        B: 'img/panel/faceIcon_B.png', 
-        C: 'img/panel/faceIcon_C.png',
+        B: 'img/panel/faceIcon_B.jpg', 
+        C: 'img/panel/faceIcon_C.jpg',
     }
 
     const scriptLines = [
