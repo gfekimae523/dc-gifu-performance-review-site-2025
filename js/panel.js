@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const speakerImageSrcMap = {
-        A: 'img/panel/faceIcon_A.png', 
+        A: 'img/panel/faceIcon_A.jpg', 
         B: 'img/panel/faceIcon_B.png', 
         C: 'img/panel/faceIcon_C.png',
     }
